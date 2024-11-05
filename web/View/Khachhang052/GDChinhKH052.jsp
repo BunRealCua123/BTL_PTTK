@@ -1,6 +1,16 @@
+<%@page import="Model.Khachhang052"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*"%> 
 <%@page import="java.util.*"%>
+<%
+    
+    if(session.getAttribute("khachhang") == null){
+        response.sendRedirect("http://localhost:8080/SupermarketManagementSystem/GDDangnhap.jsp");
+    }
+    else{
+        Khachhang052 khach =(Khachhang052) session.getAttribute("khachhang");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>

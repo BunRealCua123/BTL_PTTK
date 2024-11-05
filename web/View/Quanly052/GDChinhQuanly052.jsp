@@ -1,6 +1,16 @@
+<%@page import="Model.NVQuanly052"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*"%> 
 <%@page import="java.util.*"%>
+<%
+   
+    if(session.getAttribute("quanly")==null){
+        response.sendRedirect("http://localhost:8080/SupermarketManagementSystem/GDDangnhap.jsp");
+    }
+    else{
+         NVQuanly052 quanly = (NVQuanly052) session.getAttribute("quanly");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>

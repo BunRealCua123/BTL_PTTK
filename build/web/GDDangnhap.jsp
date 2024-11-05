@@ -1,3 +1,5 @@
+<%@page import="Model.NVQuanly052"%>
+<%@page import="Model.Khachhang052"%>
 <%@page import="Model.Thanhvien052"%>
 <%@page import="DAO.Thanhvien052DAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -6,15 +8,29 @@
     String password = request.getParameter("password");
     Thanhvien052DAO thanhvien052DAO = new Thanhvien052DAO();
     Thanhvien052 thanhvien052 = new Thanhvien052();
+    Khachhang052 khachhang052 = new Khachhang052();
+    NVQuanly052 nVQuanly052 = new NVQuanly052();
     if(username!=null && password!=null) thanhvien052 = thanhvien052DAO.checkLogin(username, password);
     int id = thanhvien052.getId();
     if(id!=0){
         if(thanhvien052.getVaitro().equals("KH")){
-            session.setAttribute("khachhang", thanhvien052);
+            khachhang052.setTen(thanhvien052.getTen());
+            khachhang052.setDiachi(thanhvien052.getDiachi());
+            khachhang052.setNgaysinh(thanhvien052.getNgaysinh());
+            khachhang052.setSdt(thanhvien052.getSdt());
+            khachhang052.setEmail(thanhvien052.getEmail());
+            khachhang052.setVaitro(thanhvien052.getVaitro());
+            session.setAttribute("khachhang", khachhang052);
             response.sendRedirect("View\\Khachhang052\\GDChinhKH052.jsp");
         }
         else if(thanhvien052.getVaitro().equals("NVQL")){
-            session.setAttribute("quanly", thanhvien052);
+            nVQuanly052.setTen(thanhvien052.getTen());
+            nVQuanly052.setDiachi(thanhvien052.getDiachi());
+            nVQuanly052.setNgaysinh(thanhvien052.getNgaysinh());
+            nVQuanly052.setSdt(thanhvien052.getSdt());
+            nVQuanly052.setEmail(thanhvien052.getEmail());
+            nVQuanly052.setVaitro(thanhvien052.getVaitro());
+            session.setAttribute("quanly", nVQuanly052);
             response.sendRedirect("View\\Quanly052\\GDChinhQuanly052.jsp");
         }
     }

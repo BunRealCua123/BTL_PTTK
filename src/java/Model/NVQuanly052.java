@@ -14,6 +14,10 @@ public class NVQuanly052 extends Nhanvien052 {
         super(id, username, password, ten, ngaysinh, diachi, email, sdt, vaitro, vitri);
     }
 
+    public NVQuanly052() {
+        super(0, null, null, null, null, null, null, null, null, null);
+    }
+
 //    public NVQuanly052(int id, String username, String password, String ten, String ngaysinh, String diachi, String email, String sdt, String vitri) {
 //        super(id, username, password, ten, ngaysinh, diachi, email, sdt, vitri);
 //    }
