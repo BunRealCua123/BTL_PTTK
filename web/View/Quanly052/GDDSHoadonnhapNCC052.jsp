@@ -11,12 +11,12 @@
     String kt = request.getParameter("kt");
     SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
-    ArrayList<Hoadonnhap052> hoadonnhap052s = new ArrayList<>();
+    ArrayList<Hoadonnhap052> dsHoadonnhap = new ArrayList<>();
     Hoadonnhap052DAO hoadonnhap052DAO = new Hoadonnhap052DAO();
-    hoadonnhap052s = hoadonnhap052DAO.getDSHoadonnhap(maNCC, bd, kt);
+    dsHoadonnhap = hoadonnhap052DAO.getDSHoadonnhap(maNCC, bd, kt);
     Hoadonnhap052 hoadonnhap052 = new Hoadonnhap052();
-    if(hoadonnhap052s.size()>0){
-        hoadonnhap052 = hoadonnhap052s.get(0);
+    if(dsHoadonnhap.size()>0){
+        hoadonnhap052 = dsHoadonnhap.get(0);
     }
 %>
 <!DOCTYPE html>
@@ -161,7 +161,7 @@
 <body>
     <div class="container">
         <h2>Danh sách hóa đơn nhập</h2>
-        <%if(hoadonnhap052s.size()>0){ 
+        <%if(dsHoadonnhap.size()>0){ 
             String ngaybd = outputFormat.format(inputFormat.parse(bd));
             String ngaykt = outputFormat.format(inputFormat.parse(kt));
         %>
@@ -195,7 +195,7 @@
             <%
                 
                 int dem=1;
-                for (Hoadonnhap052 hdn : hoadonnhap052s) {
+                for (Hoadonnhap052 hdn : dsHoadonnhap) {
                     Date ngaytao = inputFormat.parse(hdn.getNgaytao());
                     String ngaytaoNew = outputFormat.format(ngaytao);
             %>
