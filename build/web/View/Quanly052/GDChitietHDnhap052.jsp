@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                     <% int stt = 1;
-                    for(MH_Nhap052 mh : hoadonnhap052.getDsHangnhap()) { %>
+                    for(MH_Nhap052 mh : hdNhap.getDsHangnhap()) { %>
                     <tr>
                         <td><%=stt++%></td>
                         <td><%=mh.getHang().getMaMH() %></td>
@@ -75,7 +75,7 @@
             </table>
 
             <div class="total">
-                Tổng tiền: <span style="color: red"><%=String.format("%,.0f VNĐ", hoadonnhap052.getTongtien()) %></span>
+                Tổng tiền: <span style="color: red"><%=String.format("%,.0f VNĐ", hdNhap.getTongtien()) %></span>
             </div>
         </div>
     </body>
