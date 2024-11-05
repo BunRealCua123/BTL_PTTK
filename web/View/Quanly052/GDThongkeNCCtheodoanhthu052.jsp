@@ -6,10 +6,10 @@
     String bd = (String)request.getParameter("startDate");
     String kt = (String)request.getParameter("endDate");
     ThongkeNCC052DAO thongkeNCC052DAO = new ThongkeNCC052DAO();
-    ArrayList<ThongkeNCC052> thongkeNCC052s = new ArrayList<>();
+    ArrayList<ThongkeNCC052> dsNCC = new ArrayList<>();
     if(bd!=null &&kt!=null){
-        thongkeNCC052s = thongkeNCC052DAO.getThongkeNCC(bd, kt);
-        System.out.println(thongkeNCC052s.size());
+        dsNCC = thongkeNCC052DAO.getThongkeNCC(bd, kt);
+        System.out.println(dsNCC.size());
     }
 %>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
                     <%
                         if(bd!=null&&kt!=null){
                             int dem=1;
-                            for (ThongkeNCC052 ncc : thongkeNCC052s) {
+                            for (ThongkeNCC052 ncc : dsNCC) {
                     %>
                     <tr class="ncc" onclick="window.location.href='<%= request.getContextPath() + "/View/Quanly052/GDDSHoadonnhapNCC052.jsp?maNCC=" + ncc.getMaNCC()+"&bd="+bd+"&kt="+kt %>';">
                         <td><%= dem %></td>
@@ -64,7 +64,7 @@
                                 dem++;
                             }
                         }
-                        if(thongkeNCC052s.isEmpty()){
+                        if(dsNCC.isEmpty()){
                     %>
                     <tr>
                         <td colspan="5">Không tìm thấy NCC nào!</td>

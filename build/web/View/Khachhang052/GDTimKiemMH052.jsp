@@ -4,12 +4,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     int k = 1;
-    ArrayList<Mathang052> products = new ArrayList<Mathang052>();
+    ArrayList<Mathang052> dsMH = new ArrayList<Mathang052>();
     Mathang052DAO mathang052DAO = new Mathang052DAO();
     String keyword = request.getParameter("keyword");
     try {
-            products = mathang052DAO.getDSMathang(keyword);
-            if(products.size()==0) k=0;
+            dsMH = mathang052DAO.getDSMathang(keyword);
+            if(dsMH.size()==0) k=0;
         } catch (Exception e) {
             k=0;
         }
@@ -226,10 +226,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% if (k == 1 && products.size()>0) { %>
+                    <% if (k == 1 && dsMH.size()>0) { %>
                         <%
                             // Duyệt qua danh sách các sản phẩm và hiển thị ra bảng
-                            for (Mathang052 product : products) {
+                            for (Mathang052 product : dsMH) {
                         %>
                             <tr class="mathang" onclick="window.location.href='<%= request.getContextPath() + "/View/Khachhang052/GDChitietMH052.jsp?maMH=" + product.getMaMH() %>';">
                                 <td><%= product.getMaMH() %></td>

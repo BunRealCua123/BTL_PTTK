@@ -7,7 +7,7 @@
 <%
     String maHDN = request.getParameter("maHDN");
     Hoadonnhap052DAO hoadonnhap052DAO = new Hoadonnhap052DAO();
-    Hoadonnhap052 hoadonnhap052 = hoadonnhap052DAO.getChitietHDnhap(maHDN);
+    Hoadonnhap052 hdNhap = hoadonnhap052DAO.getChitietHDnhap(maHDN);
 %>
 
 <!DOCTYPE html>
@@ -27,23 +27,23 @@
             <div class="info-section">
                 <div class="info-item">
                     <span class="info-label">Mã hóa đơn nhập:</span>
-                    <span><%=hoadonnhap052.getMaHDN()%></span>
+                    <span><%=hdNhap.getMaHDN()%></span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Mã NCC:</span>
-                    <span><%=hoadonnhap052.getNcc().getMaNCC()%></span>
+                    <span><%=hdNhap.getNcc().getMaNCC()%></span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Tên NCC:</span>
-                    <span><%=hoadonnhap052.getNcc().getTen()%></span>
+                    <span><%=hdNhap.getNcc().getTen()%></span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Nhân viên kho tạo hóa đơn:</span>
-                    <span><%=hoadonnhap052.getNvkho().getTen()%></span>
+                    <span><%=hdNhap.getNvkho().getTen()%></span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Ngày tạo HĐ:</span>
-                    <span><%=new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(hoadonnhap052.getNgaytao()))%></span>
+                    <span><%=new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(hdNhap.getNgaytao()))%></span>
                 </div>
                 <div class="info-item" style="margin-bottom: 0px">
                     <span class="info-label">Danh sách mặt hàng:</span>

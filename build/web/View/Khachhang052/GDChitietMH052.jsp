@@ -4,7 +4,7 @@
 <%
     String maMH = request.getParameter("maMH");
     Mathang052DAO mathang052DAO = new Mathang052DAO();
-    Mathang052 mathang052 = mathang052DAO.getMathang(maMH);
+    Mathang052 mathang = mathang052DAO.getMathang(maMH);
 %>
 <!DOCTYPE html>
 <html>
@@ -131,19 +131,19 @@
                 <table>
                     <tr>
                         <td>Mã mặt hàng</td>
-                        <td><%= mathang052.getMaMH() %></td>
+                        <td><%= mathang.getMaMH() %></td>
                     </tr>
                     <tr>
                         <td>Tên mặt hàng</td>
-                        <td><%= mathang052.getTen() %></td>
+                        <td><%= mathang.getTen() %></td>
                     </tr>
                     <tr>
                         <td>Giá bán</td>
-                        <td><%= String.format("%,.0f VNĐ", mathang052.getGiaban()) %></td>
+                        <td><%= String.format("%,.0f VNĐ", mathang.getGiaban()) %></td>
                     </tr>
                     <tr>
                         <td>Mô tả</td>
-                        <td><%= mathang052.getMota() %></td>
+                        <td><%= mathang.getMota() %></td>
                     </tr>
                 </table>
             </div>
