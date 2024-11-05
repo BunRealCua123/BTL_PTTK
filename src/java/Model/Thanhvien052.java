@@ -92,6 +92,14 @@ public class Thanhvien052 {
         this.sdt = sdt;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setVaitro(String vaitro) {
+        this.vaitro = vaitro;
+    }
+
     @Override
     public String toString() {
         return "Thanhvien{" + "id=" + id + ", username=" + username + ", password=" + password + ", ten=" + ten + ", ngaysinh=" + ngaysinh + ", diachi=" + diachi + ", email=" + email + ", sdt=" + sdt + '}';
